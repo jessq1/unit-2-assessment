@@ -1,0 +1,37 @@
+<%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/books/index.css" />
+
+<main>
+  <div class="container-lg py-3">
+    <h1>Book List</h1>
+    <a href="/books/new" class="btn btn-outline-warning">Add a New Book</a>
+    <% if (books.length) { %>
+    <table class="table my-3" id="list">
+        <thead >
+          <tr>
+            <th>Title</th>
+            <th>Read</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+        <% books.forEach(book => {%> 
+            <tr>
+            <td><%= book.title %> </td>
+            <td><%= book.read ? 'Read' : 'Not Read' %> </td>
+            <td>
+                <form action="/books/?_method=DELETE" method="POST">
+                    <input type="string" name='id' value='<%= book._id %>' hidden>
+                    <button class="btn btn-outline-danger">X</button>
+                  </form>
+            </td>
+            <%}); %> 
+        
+      <% } else { %>
+        <h5 class="mt-3">There are no books yet..</h5>
+      <% } %>
+    
+  </div>
+</main>
+
+<%- include('../partials/footer') %>

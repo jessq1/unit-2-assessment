@@ -1,0 +1,19 @@
+<%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/books/index.css" />
+
+<main>
+  <div class="container-lg py-3">
+    <h1>Add a Book</h1>
+<form action="/books" method="POST">
+    <label for="books-input">Title: </label>
+    <input type="text" name="title">
+    <label for="read-checkbox">Read:</label>
+    <input type="checkbox" name="read" id="read-checkbox">
+    <button class="ms-4 btn btn-outline-warning" type="submit">Add Book</button>
+</form>
+    <a href="/books/" class="btn btn-outline-warning mt-3">Back to Book List</a>
+    
+  </div>
+</main>
+
+<%- include('../partials/footer') %>
